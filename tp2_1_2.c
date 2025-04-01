@@ -15,8 +15,8 @@ int main()
 
     for (i = 0; i < N; i++)
     {   
-        *(p+1)= 1+rand()%100;
-        printf("%.2f \n", *(p+1));
+        *p = 1+rand()%100;
+        printf("%.2f \n", *p++);
     }
     
     
