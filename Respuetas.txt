@@ -1,0 +1,11 @@
+2.f. Inspeccione la carpeta donde inicializó el repositorio: ● ¿Puede ver el archivo tp2_1_2.c? ¿Por qué? ● En el VSCode vaya al “Source Control” para ver una representación gráfica del historial de versiones del repositorio.
+
+    No puedo ver el archivo tp2_1_2.c porque no se realizo/creo/modifico en la branch main. Ese archivo pertenece unicamente a la branch Opcion_2.
+
+    ● En la rama main agregue un nuevo archivo que se llame Respuestas.txt y realice un commit para agregar este archivo al repositorio.
+    ● En VSCode vuelva al “Source Control” ¿Qué diferencias nota?
+
+        Puedo notar que se dividen las lineas, van en diferentes dirreciones y en cierto puto se unen en una sola.
+
+    ● En VSCode vuelva al “Source Control” vea los cambios, ¿Qué nota?
+        Note que se volvieron a unir en tal punto.
