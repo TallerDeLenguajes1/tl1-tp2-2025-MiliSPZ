@@ -14,6 +14,7 @@ typedef struct
 
 void listarPCs(compus pcs[], int cantidad);
 void mostrarMasVieja(compus pcs[], int cantidad);
+void mostrarMasVeloz(compus pcs[], int cantidad);
 
 int main()
 {   
@@ -26,9 +27,7 @@ int main()
     compus compu[CANTIDAD_COMPUS];
     ptipos = &tipos[0][0];
 
-
-    
-
+    //inicializo la matriz de compus
     for (i = 0; i < CANTIDAD_COMPUS; i++)
     {
         tipoRamdom = rand()%5;
@@ -39,9 +38,21 @@ int main()
 
     }
 
+    //imprimo la matriz de compus
+    printf("\n _________________________________");
+    printf("\n Computadoras");
     listarPCs(compu, 5);
     
+
+    //busco la compu mas vieja y la mas veloz
+    printf("\n _________________________________");
+    printf("\n Computadora mas vieja");
     mostrarMasVieja(compu, 5);
+
+    //busco la compu mas veloz
+    printf("\n _________________________________");
+    printf("\n Computadora mas veloz");
+    mostrarMasVeloz(compu, 5);
     
     return 0;
 }
@@ -62,9 +73,6 @@ void listarPCs(compus pcs[], int cantidad){
 }
 
 void mostrarMasVieja(compus pcs[], int cantidad){
-    //Recibe el arreglo de PCs y la cantidad de elementos.
-    //Busca la PC con el menor año de fabricación (la más vieja).
-    //Muestra por pantalla las características de la PC más vieja encontrada. Si hay varias con el mismo año más antiguo, puedes mostrar la primera que encuentres.
 
     int anioViejo = 7000;
     int compuVieja = 0;
@@ -87,8 +95,29 @@ void mostrarMasVieja(compus pcs[], int cantidad){
     printf("\n   #Cantidad de nucleos: %d", pcs[compuVieja].cantidad_nucleos);
     printf("\n #Tipo CPU: %s", pcs[compuVieja].tipo_cpu);
     printf("\n");
+}
 
+void mostrarMasVeloz(compus pcs[], int cantidad){
+
+    int velocidadMayor = 0;
+    int compuVelocidadMayor = 0;
+
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].velocidad > velocidadMayor )
+        {
+            velocidadMayor = pcs[i].velocidad;
+            compuVelocidadMayor = i;
+        }
+        
+    }
     
-
-
+    printf("\n -----------------------------------");
+    printf("\n Computadora %d", compuVelocidadMayor+1);
+    printf("\n  -------- DATOS --------");
+    printf("\n   #Velocidad: %d", pcs[compuVelocidadMayor].velocidad);
+    printf("\n   #Anio: %d", pcs[compuVelocidadMayor].anio);
+    printf("\n   #Cantidad de nucleos: %d", pcs[compuVelocidadMayor].cantidad_nucleos);
+    printf("\n #Tipo CPU: %s", pcs[compuVelocidadMayor].tipo_cpu);
+    printf("\n");
 }
