@@ -12,11 +12,13 @@ typedef struct
     char *tipo_cpu; //punt a cadena de caracteres
 } compus;
 
+void listarPCs(compus pcs[], int cantidad);
+
 int main()
 {   
     int i, j;
     char *ptipos;
-    int tipoRamdom = 1+rand()%5;
+    int tipoRamdom;
     char tipos[6][10] = {"Intel", "AMD", "Celeron", "Athlon", "Core","Pentium"};
 
     srand(time(NULL));
@@ -28,20 +30,31 @@ int main()
 
     for (i = 0; i < CANTIDAD_COMPUS; i++)
     {
+        tipoRamdom = rand()%5;
         compu[i].velocidad = 1+rand()%3;
-        compu[i].anio = 2015+rand()%2024;
+        compu[i].anio = 2015+rand()%10;
         compu[i].cantidad_nucleos = 1+rand()%8;
-        if (tipoRamdom <= 5)
-        {
-            for (j = 0; j < 10; i++)
-            {
-                compu[i].tipo_cpu = *(ptipos + (tipoRamdom * j));
-            }          
-        }
+        compu[i].tipo_cpu = &tipos[tipoRamdom][0];
 
     }
 
+    listarPCs(compu, 5);
     
     
     return 0;
+}
+
+void listarPCs(compus pcs[], int cantidad){
+    for (int i = 0; i < cantidad; i++)
+    {
+        printf("\n -----------------------------------");
+        printf("\n Computadora %d", i+1);
+        printf("\n  -------- DATOS --------");
+        printf("\n   #Velocidad: %d", pcs[i].velocidad);
+        printf("\n   #Anio: %d", pcs[i].anio);
+        printf("\n   #Cantidad de nucleos: %d", pcs[i].cantidad_nucleos);
+        printf("\n #Tipo CPU: %s", pcs[i].tipo_cpu);
+        printf("\n");
+    }
+    
 }
